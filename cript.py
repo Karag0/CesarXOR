@@ -149,7 +149,7 @@ texts = {
         'clear_button': "Очистить вывод",
         'about_button': "О программе",
         'output_label': "Результат:",
-        'about_message': "Программа разработана Владиславом Ореховым для школьного проекта.\nИсходный код есть на github."
+        'about_message': "Программа разработана Владиславом Ореховым для школьного проекта.\n Исходный код https://github.com/Karag0/CesarXOR"
     },
     'en': {
         'input_label': "Enter text:",
@@ -162,7 +162,7 @@ texts = {
         'clear_button': "Clear output",
         'about_button': "About",
         'output_label': "Result:",
-        'about_message': "The program was developed by Vladislav Orekhov for a school project.\nThe source code is available on GitHub."
+        'about_message': "The program was developed by Vladislav Orekhov for a school project.\nSource code: https://github.com/Karag0/CesarXOR"
     }
 }
 
@@ -172,7 +172,7 @@ about_button = tk.Button(root, text=texts[language]['about_button'], command=sho
 about_button.pack()
 
 # Добавьте кнопку для смены языка
-language_button = tk.Button(root, text="Сменить язык", command=change_language)
+language_button = tk.Button(root, text="Change language", command=change_language)
 language_button.pack()
 
 # Обновите текст интерфейса в начале
