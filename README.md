@@ -1,4 +1,4 @@
-# MySimpleTestProgram-for-Crypt
+# CesarXOR
 
 This is a simple cryptography program that implements encryption and decryption using a combination of the Caesar cipher and XOR encryption. It is designed as a beginner project to explore basic cryptographic techniques.
 
