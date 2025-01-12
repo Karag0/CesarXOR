@@ -1,6 +1,8 @@
 import tkinter as tk
 from tkinter import messagebox
-
+def show_about():
+    messagebox.showinfo("О программе", texts[language]['about_message'])
+    
 def caesar_encrypt(text, shift):
     encrypted = ""
     for char in text:
@@ -64,10 +66,8 @@ def paste_from_clipboard():
         tk.messagebox.showwarning("Вставка", "Буфер обмена пуст!")
 
 def clear_output():
+    # Функция для очистки текстового поля вывода
     output_text.delete("1.0", tk.END)
-
-def show_about():
-    messagebox.showinfo("О программе", "Программа разработана Владиславом Ореховым для школьного проекта.\nОна не обеспечивает должный уровень безопасности.")
 
 # Создание основного окна
 root = tk.Tk()
@@ -108,15 +108,75 @@ paste_button.pack()
 clear_button = tk.Button(root, text="Очистить вывод", command=clear_output)
 clear_button.pack()
 
-# Кнопка "О программе"
-about_button = tk.Button(root, text="О программе", command=show_about)
-about_button.pack()
-
 # Вывод результата
 output_label = tk.Label(root, text="Результат:")
 output_label.pack()
 output_text = tk.Text(root, height=10, width=50)
 output_text.pack()
+
+# Функции для смены языка
+def change_language():
+    global language
+    language = 'en' if language == 'ru' else 'ru'
+    update_text()
+
+def update_text():
+    input_label.config(text=texts[language]['input_label'])
+    shift_label.config(text=texts[language]['shift_label'])
+    key_label.config(text=texts[language]['key_label'])
+    encrypt_button.config(text=texts[language]['encrypt_button'])
+    decrypt_button.config(text=texts[language]['decrypt_button'])
+    copy_button.config(text=texts[language]['copy_button'])
+    paste_button.config(text=texts[language]['paste_button'])
+    clear_button.config(text=texts[language]['clear_button'])
+    about_button.config(text=texts[language]['about_button'])
+    output_label.config(text=texts[language]['output_label'])
+
+
+# Переменная для хранения текущего языка
+language = 'ru'
+
+# Словарь с текстами на русском и английском
+texts = {
+    'ru': {
+        'input_label': "Введите текст:",
+        'shift_label': "Введите сдвиг:",
+        'key_label': "Введите ключ для XOR:",
+        'encrypt_button': "Зашифровать",
+        'decrypt_button': "Дешифровать",
+        'copy_button': "Скопировать в буфер",
+        'paste_button': "Вставить из буфера",
+        'clear_button': "Очистить вывод",
+        'about_button': "О программе",
+        'output_label': "Результат:",
+        'about_message': "Программа разработана Владиславом Ореховым для школьного проекта.\nИсходный код есть на github."
+    },
+    'en': {
+        'input_label': "Enter text:",
+        'shift_label': "Enter shift:",
+        'key_label': "Enter XOR key:",
+        'encrypt_button': "Encrypt",
+        'decrypt_button': "Decrypt",
+        'copy_button': "Copy to clipboard",
+        'paste_button': "Paste from clipboard",
+        'clear_button': "Clear output",
+        'about_button': "About",
+        'output_label': "Result:",
+        'about_message': "The program was developed by Vladislav Orekhov for a school project.\nThe source code is available on GitHub."
+    }
+}
+
+
+# Кнопка "О программе"
+about_button = tk.Button(root, text=texts[language]['about_button'], command=show_about)
+about_button.pack()
+
+# Добавьте кнопку для смены языка
+language_button = tk.Button(root, text="Сменить язык", command=change_language)
+language_button.pack()
+
+# Обновите текст интерфейса в начале
+update_text()
 
 # Запуск основного цикла
 root.mainloop()
