@@ -149,7 +149,7 @@ texts = {
         'clear_button': "Очистить вывод",
         'about_button': "О программе",
         'output_label': "Результат:",
-        'about_message': "Программа разработана Владиславом Ореховым для школьного проекта.\n Исходный код https://github.com/Karag0/CesarXOR"
+        'about_message': "Просто для теста.\n Исходный код https://github.com/Karag0/CesarXOR"
     },
     'en': {
         'input_label': "Enter text:",
@@ -162,7 +162,7 @@ texts = {
         'clear_button': "Clear output",
         'about_button': "About",
         'output_label': "Result:",
-        'about_message': "The program was developed by Vladislav Orekhov for a school project.\nSource code: https://github.com/Karag0/CesarXOR"
+        'about_message': "Just for fun. \nSource code: https://github.com/Karag0/CesarXOR"
     }
 }
 
